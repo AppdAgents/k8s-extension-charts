@@ -57,7 +57,9 @@ replicaCount: 1
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext: {
+  fsGroup: 1000
+}
 # fsGroup: 2000
 
 securityContext: {}
