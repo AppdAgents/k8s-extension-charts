@@ -2,7 +2,7 @@
 ## Create the docker image first as mentioned in https://github.com/AppdAgents/kubernetes-snapshot-extension-1/blob/master/README.md
 ### Add AppDynamics helm repo
 ```bash
-helm repo add appdynamics-charts https://ciscodevnet.github.io/appdynamics-charts
+helm repo add k8s-extension-charts https://github.com/AppdAgents/k8s-extension-charts
 ```
 ### Create values yaml to override default ones
 ```yaml
@@ -54,7 +54,7 @@ extensionConfig:
 ```
 ### Install k8s-extension using helm chart
 ```bash
-helm install k8s-extension  appdynamics-charts/k8s-extension -f <values-file>.yaml --namespace <namespace>
+helm install k8s-extension  k8s-extension-charts/k8s-extension -f <values-file>.yaml --namespace <namespace>
 ```
 ### Note:
 For more details and config options please visit official documentation
