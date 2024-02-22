@@ -2,7 +2,7 @@
 ## Create the docker image first as mentioned in https://github.com/AppdAgents/kubernetes-snapshot-extension-1/blob/master/README.md
 ### Add AppDynamics helm repo
 ```bash
-helm repo add k8s-extension-charts https://github.com/AppdAgents/k8s-extension-charts
+helm repo add k8s-extension-charts https://appdagents.github.io/k8s-extension-charts/
 ```
 ### Create values yaml to override default ones
 ```yaml
