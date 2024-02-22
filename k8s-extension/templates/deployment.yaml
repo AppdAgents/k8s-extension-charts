@@ -40,23 +40,23 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           envFrom:
             - configMapRef:
-                name: ma-config
+                name: {{ .Values.maConfigMapName }}
             - secretRef:
                 name: appd-secret
           volumeMounts:
-            - name: ma-config-volume
+            - name: ma-config-volume-ext
               mountPath: /opt/appdynamics/MachineAgent/conf/logging/log4j.xml
               subPath: log4j.xml
             - name: config-volume
               mountPath: /opt/appdynamics/MachineAgent/monitors/KubernetesSnapshotExtension/config.yml
               subPath: config.yml
       volumes:
-        - name: ma-config-volume
+        - name: ma-config-volume-ext
           configMap:
-            name: ma-log-config
+            name: {{ .Values.maLogConfigName }}
         - name: config-volume
           configMap:
-            name: k8sext-config
+            name: {{ .Values.k8sExtConfigMapName}}
       restartPolicy: Always
       {{- with .Values.nodeSelector }}
       nodeSelector:
