@@ -1,5 +1,5 @@
 apiVersion: v2
-name: k8s_extension
+name: k8s-extension
 description: Sophisticated helm chart to deploy k8s extension and machine agent in addition
 home: https://appdynamics.com
 icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
