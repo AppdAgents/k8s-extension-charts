@@ -1,4 +1,4 @@
-theme: jekyll-theme-minimal
+
 # k8s-extension-charts
 ## Create the docker image first as mentioned in https://github.com/AppdAgents/kubernetes-snapshot-extension-1/blob/master/README.md
 ### Add AppDynamics helm repo
