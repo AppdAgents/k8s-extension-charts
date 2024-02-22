@@ -24,7 +24,7 @@ extensionConfig:
   # APPLICATION_NAME env var
   appName:
   appTierName:
-  imageUrl: kusolank812/k8s_ext:10July.oc
+  imageUrl:
   imagePullPolicy: IfNotPresent
   #server or cluster #K8S_API_MODE env var
   apiMode: "cluster"
@@ -60,7 +60,7 @@ podAnnotations: {}
 podSecurityContext: {}
 # fsGroup: 2000
 
-securityContext: {runAsRoot: true}
+securityContext: {}
   # capabilities:
   #   drop:
 #   - ALL
