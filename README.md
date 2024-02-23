@@ -1,7 +1,7 @@
 
-# k8s-extension-charts
-## Create the docker image first as mentioned in https://github.com/AppdAgents/kubernetes-snapshot-extension-1/blob/master/README.md
-### Add AppDynamics helm repo
+# K8S Extension Charts
+## Create the docker image first as mentioned in [documentation](https://github.com/AppdAgents/kubernetes-snapshot-extension-1/blob/master/README.md)
+### Add K8S Extension Charts helm repo
 ```bash
 helm repo add k8s-extension-charts https://appdagents.github.io/k8s-extension-charts/
 ```
@@ -55,8 +55,7 @@ extensionConfig:
 ```
 ### Install k8s-extension using helm chart
 ```bash
-helm install k8s-extension  k8s-extension-charts/k8s-extension -f <values-file>.yaml --namespace <namespace>
+helm install "<my-k8-extension-helm-release-name>"> k8s-extension-charts/k8s-extension -f <values-file>.yaml --namespace <namespace>
 ```
 ### Note:
-For more details and config options please visit official documentation
-[https://github.com/AppdAgents/kubernetes-snapshot-extension-1/blob/master/README.md](https://github.com/AppdAgents/kubernetes-snapshot-extension-1/blob/master/README.md)
+For more details and config options please visit official[documentation](https://github.com/AppdAgents/kubernetes-snapshot-extension-1/blob/master/README.md)
