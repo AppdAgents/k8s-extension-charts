@@ -1,5 +1,5 @@
 
-# K8S Extension Charts
+# Appdynamics Kubernetes Extension Helm Charts
 ## Begin by creating the Docker image as detailed in [documentation](https://github.com/AppdAgents/kubernetes-snapshot-extension-1/blob/master/README.md) or you may opt to download the necessary tar file directly from [Here](https://appdagents.github.io/k8s-extension-charts/k8s-ext-docker-1.0.tar) 
 ### Add K8S Extension Charts helm repo
 ```bash
