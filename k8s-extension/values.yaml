@@ -52,7 +52,7 @@ k8sExtConfigMapName: k8sext-config
 maConfigMapName: ma-config-ext
 maLogConfigName: ma-log-config-ext
 
-# Default values for k8s_extension.
+# Default values for k8s-extension.
 replicaCount: 1
 
 podAnnotations: {}
