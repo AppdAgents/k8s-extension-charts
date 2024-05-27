@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ .Values.extensionConfig.appName }}
   namespace: {{.Release.Namespace}}
   labels:
     app: {{ .Release.Name }}
@@ -9,7 +9,7 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: {{ .Values.extensionConfig.appName }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -17,7 +17,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        app: {{ .Release.Name  }}
+       app: {{ .Values.extensionConfig.appName }}
     spec:
       {{- with .Values.extensionConfig.imagePullSecrets }}
       imagePullSecrets:
@@ -50,10 +50,12 @@ spec:
             - name: config-volume
               mountPath: /opt/appdynamics/MachineAgent/monitors/KubernetesSnapshotExtension/config.yml
               subPath: config.yml
-            {{- if .Values.customCert.enabled }}
+            {{ with .Values.customCert -}}
+            {{ if .enabled -}}
             - name: truststore-volume
               mountPath: /opt/appdynamics/MachineAgent/conf/truststore.jks
               subPath: truststore.jks
+            {{- end }}
             {{- end }}
       volumes:
         - name: ma-config-volume-ext
@@ -62,13 +64,15 @@ spec:
         - name: config-volume
           configMap:
             name: {{ .Values.k8sExtConfigMapName}}
-        {{ if .Values.customCert.enabled -}}
+        {{ with .Values.customCert -}}
+        {{ if .enabled -}}
         - name: truststore-volume
           secret:
             secretName: appd-truststore-secret
             items:
               - key: TRUSTSTORE_JKS
                 path: truststore.jks
+        {{- end }}
         {{- end }}
       restartPolicy: Always
       {{- with .Values.nodeSelector }}
