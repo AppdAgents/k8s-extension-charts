@@ -3,10 +3,10 @@ entries:
   k8s-extension:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-03-05T10:21:38.786151+05:30"
+    created: "2024-05-27T20:42:43.159711+05:30"
     description: Sophisticated helm chart to deploy k8s extension and machine agent
       in addition
-    digest: af2aa352d501e179a5f96497d48aa6703d61d56b4912e3247bbc42391e81ffd8
+    digest: c7b5f19f425688901a3c8607a4fd3621d23c846204ac683c1e04a11a0b9341a9
     home: https://appdynamics.com
     icon: https://raw.githubusercontent.com/CiscoDevNet/appdynamics-charts/master/logo.png
     keywords:
@@ -25,4 +25,4 @@ entries:
     urls:
     - https://appdagents.github.io/k8s-extension-charts/k8s-extension-1.0.0.tgz
     version: 1.0.0
-generated: "2024-03-05T10:21:38.785433+05:30"
+generated: "2024-05-27T20:42:43.158398+05:30"
