@@ -45,6 +45,12 @@ extensionConfig:
   dashboardNameSuffix: "SUMMARY"
 
 
+customCert:
+  enabled: false
+  trustStorePath:
+  trustStorePassword:
+  trustStoreJKS:
+
 #serviceaccounts:
 extensionServiceAccount: k8s-monitor-sa
 
