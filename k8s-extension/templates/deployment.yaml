@@ -17,7 +17,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-       app: {{ .Release.Name  }}
+        app: {{ .Release.Name  }}
     spec:
       {{- with .Values.extensionConfig.imagePullSecrets }}
       imagePullSecrets:
@@ -50,12 +50,10 @@ spec:
             - name: config-volume
               mountPath: /opt/appdynamics/MachineAgent/monitors/KubernetesSnapshotExtension/config.yml
               subPath: config.yml
-            {{ with .Values.customCert -}}
-            {{ if .enabled -}}
+            {{- if .Values.customCert.enabled }}
             - name: truststore-volume
               mountPath: /opt/appdynamics/MachineAgent/conf/truststore.jks
               subPath: truststore.jks
-            {{- end }}
             {{- end }}
       volumes:
         - name: ma-config-volume-ext
@@ -64,15 +62,13 @@ spec:
         - name: config-volume
           configMap:
             name: {{ .Values.k8sExtConfigMapName}}
-        {{ with .Values.customCert -}}
-        {{ if .enabled -}}
+        {{ if .Values.customCert.enabled -}}
         - name: truststore-volume
           secret:
             secretName: appd-truststore-secret
             items:
               - key: TRUSTSTORE_JKS
                 path: truststore.jks
-        {{- end }}
         {{- end }}
       restartPolicy: Always
       {{- with .Values.nodeSelector }}

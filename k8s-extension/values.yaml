@@ -44,7 +44,6 @@ extensionConfig:
     - name: "all"
   dashboardNameSuffix: "SUMMARY"
 
-
 customCert:
   enabled: false
   trustStorePath:
@@ -63,12 +62,12 @@ replicaCount: 1
 
 podAnnotations: {}
 
-#podSecurityContext: {
-#  fsGroup: 1000
-#}
-## fsGroup: 2000
-#
-#securityContext: {}
+podSecurityContext: {
+  fsGroup: 1000
+}
+# fsGroup: 2000
+
+securityContext: {}
   # capabilities:
   #   drop:
 #   - ALL
