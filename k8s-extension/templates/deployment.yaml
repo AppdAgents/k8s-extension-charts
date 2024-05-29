@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.extensionConfig.appName }}
+  name: {{ .Release.Name }}
   namespace: {{.Release.Namespace}}
   labels:
     app: {{ .Release.Name }}
@@ -9,7 +9,7 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.extensionConfig.appName }}
+      app: {{ .Release.Name }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -17,19 +17,19 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-       app: {{ .Values.extensionConfig.appName }}
+       app: {{ .Release.Name }}
     spec:
       {{- with .Values.extensionConfig.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ .Values.extensionServiceAccount }}
-{{/*      securityContext:*/}}
-{{/*        {{- toYaml .Values.podSecurityContext | nindent 8 }}*/}}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: appd-infra-agent
-{{/*          securityContext:*/}}
-{{/*            {{- toYaml .Values.securityContext | nindent 12 }}*/}}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.extensionConfig.imageUrl}}"
           imagePullPolicy: {{ .Values.extensionConfig.imagePullPolicy }}
           ports:
